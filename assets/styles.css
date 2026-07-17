@@ -77,7 +77,6 @@ nav.wrap {
   color: var(--text);
 }
 .logo:hover { text-decoration: none; }
-.logo span { color: var(--accent); }
 .nav-links {
   display: flex;
   gap: 28px;
