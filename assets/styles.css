@@ -138,12 +138,10 @@ nav.wrap {
 .hero-bg-photo:nth-child(3) { animation-delay: 11s; }
 .hero-bg-photo:nth-child(4) { animation-delay: 16.5s; }
 .hero-bg-photo:nth-child(5) { animation-delay: 22s; }
-/* TEMP: overlay tint disabled for raw-photo review — re-enable by
-   uncommenting the background line below before shipping. */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  /* background: rgba(30, 58, 47, 0.7); */
+  background: rgba(30, 58, 47, 0.7);
 }
 .hero > .wrap {
   position: relative;
