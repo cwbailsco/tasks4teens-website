@@ -73,7 +73,7 @@ nav.wrap {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   font-family: 'Anton', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
