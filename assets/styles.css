@@ -141,7 +141,7 @@ nav.wrap {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 58, 47, 0.7);
+  background: rgba(30, 58, 47, 0.77);
 }
 .hero > .wrap {
   position: relative;
@@ -151,8 +151,8 @@ nav.wrap {
 @keyframes heroBgSlide {
   0% { transform: translateX(100%); }
   5% { transform: translateX(0%); }
-  15% { transform: translateX(0%); }
-  20%, 100% { transform: translateX(-100%); }
+  20% { transform: translateX(0%); }
+  25%, 100% { transform: translateX(-100%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
