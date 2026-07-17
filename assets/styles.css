@@ -83,9 +83,7 @@ nav.wrap {
 .logo-icon {
   width: 34px;
   height: 34px;
-  border-radius: 8px;
   flex-shrink: 0;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.18);
 }
 .nav-links {
   display: flex;
