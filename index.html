@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tasks4Teens — Tasks done easy. Close to home.</title>
 <meta name="description" content="Tasks4Teens connects neighbors who need help with local teens ready to work. Yard work, pet care, moving help, and more — done easy, close to home.">
+<link rel="icon" type="image/svg+xml" href="assets/neighbors-icon-option3-warmcream.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -197,6 +198,15 @@
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 20px;
+    overflow: hidden;
+  }
+  .card-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+  .card-body {
     padding: 40px;
   }
   .audience-card .tag {
@@ -207,10 +217,21 @@
     color: var(--gold);
     margin-bottom: 14px;
   }
+  .card-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    flex-shrink: 0;
+  }
   .audience-card h3 {
     font-size: 1.9rem;
     color: var(--cream);
-    margin-bottom: 14px;
   }
   .audience-card p {
     color: var(--tan);
@@ -403,28 +424,50 @@
       </div>
       <div class="audience-grid">
         <div class="audience-card" id="neighbors-card">
-          <span class="tag">For Neighbors</span>
-          <h3>Tasks4Teens Neighbors</h3>
-          <p>Post a task in minutes and get matched with a verified teen worker nearby. No more searching, no more guessing — just reliable help, close to home.</p>
-          <ul>
-            <li>Post yard work, pet care, moving help, and more</li>
-            <li>Browse verified local teen workers</li>
-            <li>Secure in-app payments, no cash needed</li>
-            <li>Rate and review after every task</li>
-          </ul>
-          <a href="#download" class="btn btn-outline">Download Neighbors App</a>
+          <img
+            class="card-photo"
+            src="https://images.unsplash.com/photo-1690068023694-053da714f95f?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+            alt="Teen mowing a neighbor's lawn as part of a Tasks4Teens task"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <span class="tag">For Neighbors</span>
+            <div class="card-heading">
+              <img class="card-icon" src="assets/neighbors-icon-option3-warmcream.svg" alt="Tasks4Teens Neighbors app icon">
+              <h3>Tasks4Teens Neighbors</h3>
+            </div>
+            <p>Post a task in minutes and get matched with a verified teen worker nearby. No more searching, no more guessing — just reliable help, close to home.</p>
+            <ul>
+              <li>Post yard work, pet care, moving help, and more</li>
+              <li>Browse verified local teen workers</li>
+              <li>Secure in-app payments, no cash needed</li>
+              <li>Rate and review after every task</li>
+            </ul>
+            <a href="#download" class="btn btn-outline">Download Neighbors App</a>
+          </div>
         </div>
         <div class="audience-card" id="workers">
-          <span class="tag">For Workers</span>
-          <h3>Tasks4Teens Workers</h3>
-          <p>Turn your free time into income. Find tasks in your neighborhood, build a reputation, and get paid securely — all with parent-approved safety built in.</p>
-          <ul>
-            <li>Browse and accept tasks nearby</li>
-            <li>Get paid securely and on time</li>
-            <li>Build a rating that unlocks more work</li>
-            <li>Parent/guardian consent for workers under 18</li>
-          </ul>
-          <a href="#download" class="btn btn-outline">Download Workers App</a>
+          <img
+            class="card-photo"
+            src="https://images.unsplash.com/photo-1530700131180-d43d9b8cc41f?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+            alt="Teen walking a neighbor's dog around the block as part of a Tasks4Teens task"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <span class="tag">For Workers</span>
+            <div class="card-heading">
+              <img class="card-icon" src="assets/workers-icon-option3-warmcream.svg" alt="Tasks4Teens Workers app icon">
+              <h3>Tasks4Teens Workers</h3>
+            </div>
+            <p>Turn your free time into income. Find tasks in your neighborhood, build a reputation, and get paid securely — all with parent-approved safety built in.</p>
+            <ul>
+              <li>Browse and accept tasks nearby</li>
+              <li>Get paid securely and on time</li>
+              <li>Build a rating that unlocks more work</li>
+              <li>Parent/guardian consent for workers under 18</li>
+            </ul>
+            <a href="#download" class="btn btn-outline">Download Workers App</a>
+          </div>
         </div>
       </div>
     </div>
@@ -501,10 +544,12 @@
       <h2>Bring Tasks4Teens to your neighborhood</h2>
       <p>Download the app that fits you — post a task as a Neighbor, or start earning as a Worker.</p>
       <div class="download-buttons">
+        <!-- TODO: swap href="#" for the real App Store link once the Neighbors app is approved -->
         <a href="#" class="store-btn" aria-label="Download Tasks4Teens Neighbors on the App Store">
           <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.462 2.09-1.14 2.83-.75.83-1.99 1.47-3.06 1.39-.13-1.09.44-2.24 1.1-2.94.75-.83 2.03-1.44 3.1-1.28zM20.5 17.2c-.53 1.22-.78 1.77-1.46 2.85-.95 1.52-2.29 3.41-3.95 3.42-1.47.02-1.85-.96-3.84-.95-1.99.01-2.41.97-3.88.95-1.66-.02-2.93-1.72-3.88-3.24-2.66-4.2-2.94-9.13-1.3-11.76 1.17-1.88 3.02-2.98 4.75-2.98 1.76 0 2.87 1 4.33 1 1.42 0 2.28-1 4.33-1 1.54 0 3.17.84 4.33 2.29-3.8 2.08-3.18 7.5.57 9.42z"/></svg>
           <span><small>Neighbors · App Store</small><strong>Download</strong></span>
         </a>
+        <!-- TODO: swap href="#" for the real Google Play link once the Workers app is approved -->
         <a href="#" class="store-btn" aria-label="Download Tasks4Teens Workers on Google Play">
           <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.4.4-.6.9-.6 1.5v15.8c0 .6.2 1.1.6 1.5l.1.1L13 12 3.7 2.5l-.1.1z"/><path d="M16.1 15l-3.1-3-9.4 9.4c.4.4 1 .5 1.6.2l10.9-6.6z" opacity=".8"/><path d="M16.1 9l-3.1 3L3.6 2.6c.4-.4 1-.5 1.6-.2l10.9 6.6z" opacity=".8"/><path d="M16.1 9L19.7 11.1c.5.3.8.8.8.9s-.3.6-.8.9L16.1 15l-3.2-3 3.2-3z" opacity=".6"/></svg>
           <span><small>Workers · Google Play</small><strong>Download</strong></span>

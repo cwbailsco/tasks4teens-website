@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Cream background, warmed slightly from #f0ebe0 -->
+  <rect width="1024" height="1024" fill="#ece6d8" rx="200"/>
+  
+  <!-- Large circle outline, back to #2a5040 -->
+  <circle cx="512" cy="512" r="310" fill="none" stroke="#2a5040" stroke-width="52"/>
+  
+  <!-- Large bold checkmark inside circle -->
+  <polyline points="345,512 468,635 684,385" fill="none" stroke="#2a5040" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
