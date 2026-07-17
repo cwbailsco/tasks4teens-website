@@ -9,392 +9,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #1e3a2f;
-    --bg-light: #24483a;
-    --bg-card: #234436;
-    --cream: #f0ebe0;
-    --tan: #c8c4b8;
-    --gold: #8caf9e;
-    --border: rgba(240, 235, 224, 0.14);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--cream);
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3, .display {
-    font-family: 'Anton', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    line-height: 1.1;
-  }
-
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  img, svg { max-width: 100%; display: block; }
-
-  .wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* Nav */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(30, 58, 47, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-  }
-  nav.wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-  .logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.03em;
-    color: var(--cream);
-  }
-  .logo span { color: var(--gold); }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    font-size: 0.95rem;
-  }
-  .nav-links a { color: var(--tan); }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--bg);
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  .nav-cta:hover { text-decoration: none; background: #a0c3b2; }
-  .nav-toggle { display: none; }
-
-  @media (max-width: 720px) {
-    .nav-links { display: none; }
-  }
-
-  /* Hero */
-  .hero {
-    padding: 96px 0 80px;
-    text-align: center;
-    background:
-      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(140,175,158,0.14), transparent 70%),
-      var(--bg);
-  }
-  .eyebrow {
-    display: inline-block;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(140,175,158,0.4);
-    border-radius: 999px;
-    padding: 6px 16px;
-    margin-bottom: 28px;
-  }
-  .hero h1 {
-    font-size: clamp(2.6rem, 6vw, 4.6rem);
-    color: var(--cream);
-    margin-bottom: 8px;
-  }
-  .hero h1 .line2 { color: var(--tan); }
-  .hero p.sub {
-    max-width: 560px;
-    margin: 24px auto 40px;
-    font-size: 1.15rem;
-    color: var(--tan);
-    font-weight: 300;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-  .btn:hover { transform: translateY(-2px); text-decoration: none; }
-  .btn-primary { background: var(--gold); color: var(--bg); }
-  .btn-primary:hover { background: #a0c3b2; }
-  .btn-outline { border-color: var(--tan); color: var(--cream); }
-  .btn-outline:hover { background: rgba(240,235,224,0.06); }
-
-  .store-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--cream);
-    color: var(--bg);
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-weight: 600;
-    min-width: 210px;
-    justify-content: center;
-  }
-  .store-btn:hover { background: #fff; text-decoration: none; transform: translateY(-2px); }
-  .store-btn small { display: block; font-weight: 400; font-size: 0.7rem; opacity: 0.7; }
-  .store-btn strong { font-size: 1rem; font-family: 'Josefin Sans', sans-serif; }
-  .store-icon { width: 22px; height: 22px; flex-shrink: 0; }
-
-  /* Section framing */
-  section { padding: 88px 0; }
-  .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-  .section-head .eyebrow { margin-bottom: 18px; }
-  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); color: var(--cream); margin-bottom: 16px; }
-  .section-head p { color: var(--tan); font-size: 1.05rem; font-weight: 300; }
-
-  .divider {
-    height: 1px;
-    background: var(--border);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* Neighbors / Workers */
-  .audience-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-  @media (max-width: 800px) {
-    .audience-grid { grid-template-columns: 1fr; }
-  }
-  .audience-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .card-photo {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    display: block;
-  }
-  .card-body {
-    padding: 40px;
-  }
-  .audience-card .tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .card-heading {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .card-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 9px;
-    flex-shrink: 0;
-  }
-  .audience-card h3 {
-    font-size: 1.9rem;
-    color: var(--cream);
-  }
-  .audience-card p {
-    color: var(--tan);
-    font-weight: 300;
-    margin-bottom: 22px;
-  }
-  .audience-card ul {
-    list-style: none;
-    margin-bottom: 26px;
-  }
-  .audience-card li {
-    padding-left: 26px;
-    position: relative;
-    margin-bottom: 10px;
-    color: var(--cream);
-    font-size: 0.95rem;
-  }
-  .audience-card li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  /* How it works */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-  @media (max-width: 800px) {
-    .steps { grid-template-columns: 1fr; }
-  }
-  .step {
-    text-align: center;
-    padding: 0 12px;
-  }
-  .step-num {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: rgba(140,175,158,0.12);
-    border: 1px solid rgba(140,175,158,0.4);
-    color: var(--gold);
-    font-family: 'Anton', sans-serif;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-  }
-  .step h3 {
-    font-size: 1.2rem;
-    color: var(--cream);
-    margin-bottom: 10px;
-    text-transform: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
-  }
-  .step p {
-    color: var(--tan);
-    font-size: 0.95rem;
-    font-weight: 300;
-  }
-
-  /* Trust & safety */
-  .trust {
-    background: var(--bg-light);
-  }
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 900px) {
-    .trust-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 520px) {
-    .trust-grid { grid-template-columns: 1fr; }
-  }
-  .trust-item {
-    text-align: center;
-    padding: 8px;
-  }
-  .trust-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 16px;
-    color: var(--gold);
-  }
-  .trust-item h3 {
-    font-size: 1rem;
-    color: var(--cream);
-    text-transform: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .trust-item p {
-    color: var(--tan);
-    font-size: 0.9rem;
-    font-weight: 300;
-  }
-
-  /* Download CTA */
-  .download {
-    text-align: center;
-  }
-  .download h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 16px; }
-  .download p { color: var(--tan); max-width: 480px; margin: 0 auto 36px; font-weight: 300; }
-  .download-buttons {
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 48px 0 32px;
-  }
-  .footer-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-  footer .logo { margin-bottom: 8px; }
-  .footer-tagline {
-    color: var(--tan);
-    font-size: 0.9rem;
-    font-weight: 300;
-  }
-  .footer-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    font-size: 0.9rem;
-  }
-  .footer-links a { color: var(--tan); }
-  .footer-bottom {
-    color: rgba(240,235,224,0.5);
-    font-size: 0.82rem;
-    text-align: center;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <div class="logo">Tasks<span>4</span>Teens</div>
+    <a class="logo" href="index.html">Tasks<span>4</span>Teens</a>
     <ul class="nav-links">
-      <li><a href="#neighbors">Neighbors</a></li>
-      <li><a href="#workers">Workers</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#safety">Safety</a></li>
+      <li><a href="neighbors.html">Neighbors</a></li>
+      <li><a href="workers.html">Workers</a></li>
+      <li><a href="safety.html">Safety</a></li>
     </ul>
     <a href="#download" class="nav-cta">Get the App</a>
   </nav>
@@ -408,7 +33,7 @@
       <p class="sub">Tasks4Teens connects neighbors who need a hand with local teens who are ready to work — yard work, pet care, moving help, and more, all within your own neighborhood.</p>
       <div class="hero-actions">
         <a href="#download" class="btn btn-primary">Download the App</a>
-        <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+        <a href="#neighbors" class="btn btn-outline">Meet the Apps</a>
       </div>
     </div>
   </section>
@@ -423,7 +48,7 @@
         <p>Whether you need help or want to earn, Tasks4Teens has an app made for you.</p>
       </div>
       <div class="audience-grid">
-        <div class="audience-card" id="neighbors-card">
+        <a class="audience-card teaser-card" href="neighbors.html">
           <img
             class="card-photo"
             src="https://images.unsplash.com/photo-1690068023694-053da714f95f?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
@@ -436,17 +61,11 @@
               <img class="card-icon" src="assets/neighbors-icon-option3-warmcream.svg" alt="Tasks4Teens Neighbors app icon">
               <h3>Tasks4Teens Neighbors</h3>
             </div>
-            <p>Post a task in minutes and get matched with a verified teen worker nearby. No more searching, no more guessing — just reliable help, close to home.</p>
-            <ul>
-              <li>Post yard work, pet care, moving help, and more</li>
-              <li>Browse verified local teen workers</li>
-              <li>Secure in-app payments, no cash needed</li>
-              <li>Rate and review after every task</li>
-            </ul>
-            <a href="#download" class="btn btn-outline">Download Neighbors App</a>
+            <p>Post a task in minutes and get matched with a verified teen worker nearby.</p>
+            <span class="teaser-link">Explore Neighbors →</span>
           </div>
-        </div>
-        <div class="audience-card" id="workers">
+        </a>
+        <a class="audience-card teaser-card" href="workers.html">
           <img
             class="card-photo"
             src="https://images.unsplash.com/photo-1530700131180-d43d9b8cc41f?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
@@ -459,79 +78,10 @@
               <img class="card-icon" src="assets/workers-icon-option3-warmcream.svg" alt="Tasks4Teens Workers app icon">
               <h3>Tasks4Teens Workers</h3>
             </div>
-            <p>Turn your free time into income. Find tasks in your neighborhood, build a reputation, and get paid securely — all with parent-approved safety built in.</p>
-            <ul>
-              <li>Browse and accept tasks nearby</li>
-              <li>Get paid securely and on time</li>
-              <li>Build a rating that unlocks more work</li>
-              <li>Parent/guardian consent for workers under 18</li>
-            </ul>
-            <a href="#download" class="btn btn-outline">Download Workers App</a>
+            <p>Turn your free time into income — find tasks in your neighborhood and get paid securely.</p>
+            <span class="teaser-link">Explore Workers →</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section id="how-it-works">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Simple by design</span>
-        <h2>How It Works</h2>
-        <p>From posting a task to getting it done — three steps, start to finish.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Post or Browse</h3>
-          <p>Neighbors post a task with details and a fair price. Workers browse nearby tasks that fit their schedule.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Match & Confirm</h3>
-          <p>A worker accepts the task, both sides confirm the details, and it's officially on the calendar.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Complete & Pay</h3>
-          <p>The task gets done, payment is released securely through the app, and both sides leave a review.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="trust" id="safety">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Safety first</span>
-        <h2>Trust &amp; Safety</h2>
-        <p>Every task connects real neighbors. We built Tasks4Teens to keep it that way.</p>
-      </div>
-      <div class="trust-grid">
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Verified Identities</h3>
-          <p>Every neighbor and worker verifies their identity before joining the platform.</p>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="18" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3" stroke-linecap="round"/></svg>
-          <h3>Secure Payments</h3>
-          <p>All payments are processed securely in-app — no cash, no card numbers exchanged.</p>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20c0-3.5 3-6 8-6s8 2.5 8 6" stroke-linecap="round"/><circle cx="12" cy="7" r="4"/></svg>
-          <h3>Parental Consent</h3>
-          <p>Workers under 18 require verified parent or guardian consent to start working.</p>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 17.5l-6.5-6a4 4 0 1 1 6.5-4.6 4 4 0 1 1 6.5 4.6l-6.5 6z" stroke-linejoin="round"/></svg>
-          <h3>Community Reviews</h3>
-          <p>Ratings and reviews after every task keep the whole community accountable.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -563,13 +113,13 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="logo">Tasks<span>4</span>Teens</div>
+        <a class="logo" href="index.html">Tasks<span>4</span>Teens</a>
         <p class="footer-tagline">Tasks done easy. Close to home.</p>
       </div>
       <ul class="footer-links">
-        <li><a href="#neighbors">Neighbors</a></li>
-        <li><a href="#workers">Workers</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="neighbors.html">Neighbors</a></li>
+        <li><a href="workers.html">Workers</a></li>
+        <li><a href="safety.html">Safety</a></li>
         <li><a href="https://cwbailsco.github.io/tasks4teens-privacy">Privacy Policy</a></li>
         <li><a href="mailto:support@tasks4teens.com">support@tasks4teens.com</a></li>
       </ul>
