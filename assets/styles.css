@@ -71,12 +71,22 @@ nav.wrap {
   padding-bottom: 16px;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Anton', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
   color: var(--text);
 }
 .logo:hover { text-decoration: none; }
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.18);
+}
 .nav-links {
   display: flex;
   gap: 28px;
