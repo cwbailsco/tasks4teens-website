@@ -141,7 +141,7 @@ nav.wrap {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 58, 47, 0.8);
+  background: rgba(30, 58, 47, 0.7);
 }
 .hero > .wrap {
   position: relative;
