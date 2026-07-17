@@ -197,19 +197,21 @@ nav.wrap {
 }
 
 /* Page intro (used by neighbors/workers/safety in place of the hero) */
-.page-intro { padding: 64px 0 56px; }
+.page-intro { padding: 32px 0 0; }
+.page-intro .section-head { margin-bottom: 32px; }
 .page-title-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 18px;
   margin-bottom: 12px;
 }
 .page-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 11px;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
   flex-shrink: 0;
+  margin-top: -4px;
 }
 
 /* Buttons */
