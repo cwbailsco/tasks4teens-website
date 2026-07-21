@@ -73,7 +73,7 @@ nav.wrap {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   font-family: 'Anton', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.03em;
@@ -81,9 +81,12 @@ nav.wrap {
 }
 .logo:hover { text-decoration: none; }
 .logo-icon {
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
   flex-shrink: 0;
+}
+.wordmark {
+  margin-top: 2px;
 }
 .nav-links {
   display: flex;
