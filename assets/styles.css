@@ -105,10 +105,66 @@ nav.wrap {
   font-size: 0.9rem;
 }
 .nav-cta:hover { text-decoration: none; background: var(--accent-hover); }
-.nav-toggle { display: none; }
+.nav-toggle-input { display: none; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+}
 
+/* Mobile nav: pure-CSS checkbox-hack dropdown (no JS on this site).
+   Known tradeoff: the hamburger is mouse/touch-operable via the visible
+   label, but the hidden checkbox driving it isn't independently reachable
+   by keyboard since it's display:none - a small JS-free-menu limitation,
+   not a JS-based ARIA toggle. */
 @media (max-width: 720px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    z-index: 10;
+  }
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+  }
+  .nav-toggle-input:checked ~ .nav-links {
+    max-height: 300px;
+  }
+}
+
+/* Extra safety margin for the smallest phones: with the mobile nav row
+   down to just logo + hamburger + CTA, the full-size logo/CTA can get
+   tight around ~375px viewports - shrink both slightly. */
+@media (max-width: 480px) {
+  .logo-icon { width: 34px; height: 34px; }
+  .logo { font-size: 1.1rem; gap: 5px; }
+  .nav-cta { padding: 8px 14px; font-size: 0.78rem; }
 }
 
 /* Hero */
@@ -199,6 +255,18 @@ nav.wrap {
   flex-wrap: wrap;
 }
 
+/* .hero h1's clamp() floors at a flat 2.6rem (41.6px) for any viewport
+   under ~693px (6vw only exceeds 2.6rem above that width) - meaning every
+   phone from 320px to 480px gets the exact same, oversized heading. Give
+   phones their own smaller clamp instead of touching the base rule, so
+   tablet/desktop (>600px) keep the original untouched. */
+@media (max-width: 600px) {
+  .hero { padding: 64px 0 56px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+}
+
 /* Page intro (used by neighbors/workers/safety in place of the hero) */
 .page-intro { padding: 32px 0 0; }
 .page-intro .section-head { margin-bottom: 32px; }
@@ -217,6 +285,24 @@ nav.wrap {
   height: 80px;
   border-radius: 18px;
   flex-shrink: 0;
+}
+
+/* At 375-430px, the 80px icon + gap leaves too little room for a heading
+   like "Tasks4Teens Neighbors" to sit beside it without wrapping into an
+   awkward multi-line block next to a large icon - stack them instead. */
+@media (max-width: 600px) {
+  .page-title-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .page-title-row h1 {
+    margin-top: 0;
+  }
+  .page-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
+  }
 }
 
 /* Buttons */
@@ -365,6 +451,14 @@ section { padding: 88px 0; }
   margin-bottom: 0;
 }
 
+/* 40px padding is heavy relative to a ~327px-wide mobile card (audience
+   teasers and detail cards both use .card-body), and the 1.9rem heading
+   crowds the 40px card-icon at that width - trim both. */
+@media (max-width: 600px) {
+  .card-body { padding: 24px; }
+  .audience-card h3 { font-size: 1.5rem; }
+}
+
 /* How it works */
 .steps {
   display: grid;
@@ -509,4 +603,23 @@ footer .logo { margin-bottom: 8px; }
   text-align: center;
   padding-top: 24px;
   border-top: 1px solid var(--border);
+}
+
+/* Bug fix: .footer-links had no flex-wrap, so its 5 items (including the
+   long support@tasks4teens.com email) had no way to wrap and would
+   overflow horizontally below ~550px - .footer-grid wrapping alone only
+   moved the whole <ul> to its own row, it didn't fix wrapping *within*
+   the <ul> itself. Scoped to the media query (rather than the base rule)
+   even though it's harmless at any width, so every behavioral change
+   here stays confined to phones/tablets and desktop is untouched. */
+@media (max-width: 600px) {
+  .footer-grid {
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
 }
