@@ -8,10 +8,10 @@
    page can re-theme itself just by overriding :root. */
 
 :root {
-  --surface: #1e3a2f;
-  --surface-rgb: 30, 58, 47;
-  --surface-alt: #24483a;
-  --surface-card: #234436;
+  --surface: #2a5040;
+  --surface-rgb: 42, 80, 64;
+  --surface-alt: #315d4a;
+  --surface-card: #2f5a48;
   --text: #f0ebe0;
   --text-rgb: 240, 235, 224;
   --text-muted: #c8c4b8;
@@ -74,9 +74,10 @@ nav.wrap {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 1.4rem;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 .logo:hover { text-decoration: none; }
@@ -190,7 +191,7 @@ nav.wrap {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 58, 47, 0.77);
+  background: rgba(var(--surface-rgb), 0.77);
 }
 .hero > .wrap {
   position: relative;
