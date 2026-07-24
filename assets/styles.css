@@ -73,10 +73,10 @@ nav.wrap {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 9px;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.65rem;
   letter-spacing: -0.02em;
   color: var(--text);
 }
@@ -155,7 +155,7 @@ nav.wrap {
    tight around ~375px viewports - shrink both slightly. */
 @media (max-width: 480px) {
   .logo-icon { width: 34px; height: 34px; }
-  .logo { font-size: 1.1rem; gap: 5px; }
+  .logo { font-size: 1.3rem; gap: 6px; }
 }
 
 /* Hero */
